@@ -1,0 +1,2 @@
+src/minihaskell/parser.ml: Lexing Syntax
+src/minihaskell/parser.mli: Lexing Syntax

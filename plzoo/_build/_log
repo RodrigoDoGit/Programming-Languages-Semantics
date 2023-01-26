@@ -1,0 +1,56 @@
+### Starting build.
+# Target: src/poly/poly.ml.depends, tags: { extension:ml, file:src/poly/poly.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules src/poly/poly.ml > src/poly/poly.ml.depends # cached
+# Target: src/poly/interpret.ml.depends, tags: { extension:ml, file:src/poly/interpret.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules src/poly/interpret.ml > src/poly/interpret.ml.depends # cached
+# Target: src/poly/syntax.ml.depends, tags: { extension:ml, file:src/poly/syntax.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules src/poly/syntax.ml > src/poly/syntax.ml.depends # cached
+# Target: src/poly/syntax.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:src/poly/syntax.cmo, file:src/poly/syntax.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -I src/poly -I src -o src/poly/syntax.cmo src/poly/syntax.ml # cached
+# Target: src/poly/interpret.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:src/poly/interpret.cmo, file:src/poly/interpret.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -I src/poly -I src -o src/poly/interpret.cmo src/poly/interpret.ml # cached
+# Target: src/poly/lexer.mll, tags: { extension:mll, file:src/poly/lexer.mll, lexer, ocaml, ocamllex, quiet }
+/usr/bin/ocamllex.opt -q src/poly/lexer.mll # cached
+# Target: src/poly/lexer.ml.depends, tags: { extension:ml, file:src/poly/lexer.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules src/poly/lexer.ml > src/poly/lexer.ml.depends # cached
+# Target: src/poly/parser.mly.depends, tags: { extension:mly, file:src/poly/parser.mly, infer, menhir_ocamldep, ocaml, ocamldep, quiet }
+menhir --explain --raw-depend --ocamldep '/usr/bin/ocamldep.opt -modules' src/poly/parser.mly > src/poly/parser.mly.depends # cached
+# Target: src/poly/parser.mly, tags: { byte, compile, extension:ml, extension:mly, file:src/poly/parser.ml, file:src/poly/parser.mly, infer, menhir, ocaml, parser, quiet }
+menhir --explain --ocamlc '/usr/bin/ocamlc.opt -I src/poly -I src' --infer src/poly/parser.mly # cached
+# Target: src/poly/parser.mli.depends, tags: { extension:mli, file:src/poly/parser.mli, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules src/poly/parser.mli > src/poly/parser.mli.depends # cached
+# Target: src/poly/parser.cmi, tags: { byte, compile, extension:mli, file:src/poly/parser.mli, interf, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -I src/poly -I src -o src/poly/parser.cmi src/poly/parser.mli # cached
+# Target: src/poly/lexer.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:src/poly/lexer.cmo, file:src/poly/lexer.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -I src/poly -I src -o src/poly/lexer.cmo src/poly/lexer.ml # cached
+# Target: src/poly/type_infer.ml.depends, tags: { extension:ml, file:src/poly/type_infer.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules src/poly/type_infer.ml > src/poly/type_infer.ml.depends # cached
+# Target: src/poly/type_infer.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:src/poly/type_infer.cmo, file:src/poly/type_infer.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -I src/poly -I src -o src/poly/type_infer.cmo src/poly/type_infer.ml # cached
+# Target: src/zoo.mli.depends, tags: { extension:mli, file:src/zoo.mli, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules src/zoo.mli > src/zoo.mli.depends # cached
+# Target: src/zoo.cmi, tags: { byte, compile, extension:mli, file:src/zoo.mli, interf, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -I src -o src/zoo.cmi src/zoo.mli # cached
+# Target: src/poly/poly.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:src/poly/poly.cmo, file:src/poly/poly.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -I src/poly -I src -o src/poly/poly.cmo src/poly/poly.ml # cached
+# Target: src/poly/syntax.cmx, tags: { compile, extension:cmx, extension:ml, file:src/poly/syntax.cmx, file:src/poly/syntax.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -I src/poly -I src -o src/poly/syntax.cmx src/poly/syntax.ml # cached
+# Target: src/poly/interpret.cmx, tags: { compile, extension:cmx, extension:ml, file:src/poly/interpret.cmx, file:src/poly/interpret.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -I src/poly -I src -o src/poly/interpret.cmx src/poly/interpret.ml # cached
+# Target: src/poly/parser.ml.depends, tags: { extension:ml, file:src/poly/parser.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules src/poly/parser.ml > src/poly/parser.ml.depends # cached
+# Target: src/poly/parser.cmx, tags: { compile, extension:cmx, extension:ml, file:src/poly/parser.cmx, file:src/poly/parser.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -I src/poly -I src -o src/poly/parser.cmx src/poly/parser.ml # cached
+# Target: src/poly/lexer.cmx, tags: { compile, extension:cmx, extension:ml, file:src/poly/lexer.cmx, file:src/poly/lexer.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -I src/poly -I src -o src/poly/lexer.cmx src/poly/lexer.ml # cached
+# Target: src/poly/type_infer.cmx, tags: { compile, extension:cmx, extension:ml, file:src/poly/type_infer.cmx, file:src/poly/type_infer.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -I src/poly -I src -o src/poly/type_infer.cmx src/poly/type_infer.ml # cached
+# Target: src/zoo.ml.depends, tags: { extension:ml, file:src/zoo.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules src/zoo.ml > src/zoo.ml.depends # cached
+# Target: src/zoo.cmx, tags: { compile, extension:cmx, extension:ml, file:src/zoo.cmx, file:src/zoo.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -I src -o src/zoo.cmx src/zoo.ml # cached
+# Target: src/poly/poly.cmx, tags: { compile, extension:cmx, extension:ml, file:src/poly/poly.cmx, file:src/poly/poly.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -I src/poly -I src -o src/poly/poly.cmx src/poly/poly.ml # cached
+# Target: src/poly/poly.native, tags: { dont_link_with, extension:native, file:src/poly/poly.native, link, native, ocaml, program, quiet }
+/usr/bin/ocamlopt.opt unix.cmxa -I src/poly -I src src/poly/syntax.cmx src/poly/interpret.cmx src/poly/parser.cmx src/poly/lexer.cmx src/poly/type_infer.cmx src/zoo.cmx src/poly/poly.cmx -o src/poly/poly.native # cached
+# Compilation successful.

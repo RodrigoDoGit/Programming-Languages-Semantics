@@ -1,0 +1,2 @@
+src/miniprolog/parser.ml: Lexing Syntax
+src/miniprolog/parser.mli: Lexing Syntax

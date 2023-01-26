@@ -1,0 +1,9 @@
+# Calculate the factorial of n
+new n := 6 in
+new res := 1
+if n < 2 then res := 1 else skip end ;
+while n > 0 do
+  res := res * n
+  n := n - 1
+done
+print res
