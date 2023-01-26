@@ -1,0 +1,129 @@
+
+/* because of navbar-fixed-top */
+body { padding-top: 50px; }
+
+textarea {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    resize: vertical;
+}
+
+td.action, td.nondet {
+    /*border-top: 0px !important;
+    position: relative; 
+    top: -1.2em;*/
+}
+
+div.action {
+    /*border-top: 0px !important;*/
+    position: relative; 
+    bottom: 0.3em;
+}
+
+td.nondet div {
+    position: absolute;
+}
+
+div.action code {
+    background: none;
+    color: blue;
+    border-bottom: 3px black double;
+    border-radius: 0px;
+}
+
+td.steps span {
+    position: relative;
+    bottom: 5px;
+    font-size: smaller;
+}
+
+div.action:after {
+    position: relative;
+    left: -5px;
+    bottom: -10px;
+    content: '';  /* alternative was '>', '===⇒' or '⟹' */
+    display: inline-block;
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+#signs-analysis-placeholder td[rowspan] {
+    vertical-align: middle;
+}
+
+tbody:hover td[rowspan] {
+    background: #f5f5f5;
+}
+
+.abstract-sign-mem {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+#code {
+    min-height: 200px;
+}
+
+#about-code .dl-horizontal dt {
+        float: left;
+        width: 60px;
+        overflow: hidden;
+        clear: left;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+}
+
+#about-code .dl-horizontal dd {
+    margin-left: 66px;
+}
+
+#about-code dt code, #about-code code b {
+    color: black;
+}
+
+#about-code code i {
+    color: blue
+}
+
+/* disable fixed left position on small screens */
+@media (max-width: 767px) {
+    #code-and-graph {
+        position: static;
+    }
+}
+
+/* allow scroll on left column when overflow on big screens */
+@media (min-width: 768px) {
+    #code-and-graph {
+        overflow-y: scroll;
+        overflow-x: visible; /* is set to auto from spec https://www.w3.org/TR/css3-box/#overflow-x*/
+        bottom: 0px;
+        top: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #graph-container {
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+    #code-container {
+        flex-grow: 1;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #code-container #code-container-text {
+        flex-grow: 0;
+    }
+
+    #code-container #code {
+        flex-grow: 1;
+    }
+
+
+}

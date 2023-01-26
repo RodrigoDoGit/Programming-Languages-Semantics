@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Formal Methods – A Learning Environment</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet"><link href="css/style.css" rel="stylesheet"></head>
+  <body>
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./" title="Formal Methods – A Learning Environment">fm4fun</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
+            <li><a href="#download" aria-controls="download" role="tab" data-toggle="tab">Download</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Environments <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="tablist">
+                
+                <!--<li class="dropdown-header">Program Graphs</li>
+                <li role="separator" class="divider"></li>-->
+                
+                <li class="dropdown-header">Guarded Commands</li>
+                <li><a href="#step-wise-execution" aria-controls="step-wise-execution" role="tab" data-toggle="tab">Step-wise Execution</a></li>
+                <li role="separator" class="divider"></li>
+
+                <li class="dropdown-header">Program Verification</li>
+                <li><a href="#verification-conditions" aria-controls="verification-conditions" role="tab" data-toggle="tab">Verification Conditions</a></li>
+                <li role="separator" class="divider"></li>
+
+                <li class="dropdown-header">Program Analysis</li>
+                <li><a href="#sign-analysis" aria-controls="sign-analysis" role="tab" data-toggle="tab">Detection of Signs Analysis</a></li>
+                <li role="separator" class="divider"></li>
+
+                <li class="dropdown-header">Language Based Security</li>
+                <li><a href="#security" aria-controls="security" role="tab" data-toggle="tab">Security Analysis</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://www.formalmethods.dk">Formal Methods</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    
+    <div class="modal fade" id="about-code" tabindex="-1" role="dialog" aria-labelledby="about-codeLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="about-codeLabel">Extended Guarded Commands Code</h4>
+                </div>
+                <div class="modal-body">
+                    <p>The following syntax is used for the text input of the Guarded Commands Code, starting with a command <code><b>C</b></code>.</p>
+                    <dl class="dl-horizontal">
+                        <dt><code>C</code> ::=</dt>
+                        <dd> 
+                            <code><i>x</i> := <b>a</b></code> 
+                            | <code><i>A</i>[<b>a</b>] := <b>a</b></code> 
+                            | <code>skip</code> 
+                            | <code><b>C</b>; <b>C</b></code> 
+                            | <code>if <b>GC</b> fi</code> 
+                            | <code>do <b>GC</b> od</code> 
+                            | <code>continue</code> 
+                            | <code>break</code> 
+                            | <code>try <b>C</b> catch <b>HC</b> yrt</code>
+                            | <code>throw <i>e</i></code> 
+                        </dd>
+                        <dt><code>GC</code> ::=</dt>
+                        <dd>
+                            <code><b>b</b> -> <b>C</b></code>
+                            | <code><b>GC</b> [] <b>GC</b></code>
+                        </dd>
+                        <dt><code>HC</code> ::=</dt>
+                        <dd>
+                            <code><i>e</i>: <b>C</b></code>
+                            | <code><b>HC</b> [] <b>HC</b></code>
+                        </dd>
+                        <dt><code>a</code> ::=</dt>
+                        <dd>
+                            <code><i>n</i></code>
+                            | <code><i>x</i></code>
+                            | <code><i>A</i>[<b>a</b>]</code>
+                            | <code><b>a</b> + <b>a</b></code>
+                            | <code><b>a</b> - <b>a</b></code>
+                            | <code><b>a</b> * <b>a</b></code>
+                            | <code><b>a</b> % <b>a</b></code>
+                            | <code><b>a</b> / <b>a</b></code>
+                            | <code>-<b>a</b></code>
+                            | <code><b>a</b> ^ <b>a</b></code>
+                            | <code>(<b>a</b>)</code>
+                        </dd>
+                        <dt><code>b</code> ::=</dt>
+                        <dd>
+                            <code>true</code>
+                            | <code>false</code>
+                            | <code><b>b</b> &amp; <b>b</b></code>
+                            | <code><b>b</b> | <b>b</b></code>
+                            | <code><b>b</b> &amp;&amp; <b>b</b></code>
+                            | <code><b>b</b> || <b>b</b></code>
+                            | <code>!<b>b</b></code>
+                            | <code><b>a</b> = <b>a</b></code>
+                            | <code><b>a</b> != <b>a</b></code>
+                            | <code><b>a</b> > <b>a</b></code>
+                            | <code><b>a</b> >= <b>a</b></code>
+                            | <code><b>a</b> &lt; <b>a</b></code>
+                            | <code><b>a</b> &lt;= <b>a</b></code>
+                            | <code>(<b>b</b>)</code>
+                        </dd>
+                    </dl>
+                    <p>Additional notes:
+                    <ul>
+                        <li><code>&amp;&amp;</code> and <code>||</code> do <i>short-circut evaluation</i> (i.e. a minimal number of operands are evaluated left to right), the rest of the operators do <i>eager evaluation</i> (i.e. all operands are evaluted).</li>
+                        <li>Precedence and associativity rules:
+                            <ul>
+                                <li>Precedence is highest for <code>-</code> (unary minus), then <code>^</code>, then <code>*</code>, <code>%</code> and <code>/</code>, and lowest for <code>+</code> and <code>-</code>.</li>
+                                <li>Precedence is highest for <code>!</code>, then <code>&amp;</code> and <code>&amp;&amp;</code>, and lowest for <code>|</code> and <code>||</code>.</li>
+                                <li><code>*</code>, <code>%</code>, <code>/</code>, <code>+</code>, <code>-</code>, <code>&amp;</code>, <code>|</code>, <code>&amp;&amp;</code>, and <code>||</code> associate left to right.</li>
+                                <li><code>!</code>, <code>^</code>, <code>-</code> (unary minus), <code>[]</code>, and <code>;</code> associate right to left.</li>
+                            </ul>
+                        <li>Variables <code><i>x</i></code>, arrays <code><i>A</i></code> and exceptions <code><i>e</i></code> match the regular expression <code>[a-zA-Z][a-zA-Z\d_]*</code> and can not be any of the keywords. Furthermore the three sets should be pair-wise disjoint, e.g. a variable identifier can not be used both as a variable and an array (and an exception) in the same program.</li>
+                        <li>Numbers <code><i>n</i></code> match the regular expression <code>\d+</code> and are bound by 2<sup>53</sup>-1 (JavaScript <code>Number.MAX_SAFE_INTEGER</code>). Negative numbers are passed as unary minus <code>-<i>n</i></code>.</li>
+                        <li>A whitespace matches the regular expression <code>[ \u00A0\f\n\r\t\v]</code>, with a mandatory whitespace after <code>if␣</code>, <code>do␣</code>, <code>try␣</code>, <code>throw␣</code>, before <code>␣fi</code>, <code>␣od</code>, <code>␣yrt</code>, and around <code>␣catch␣</code>. Whitespaces are ignored anywhere else.</li>
+                    </ul>     
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-5 col-md-4 col-lg-4 affix" id="code-and-graph">
+                
+                <div id="code-container">
+                    <div id="code-container-text">
+                        <h3>Input Program
+                            <span class="btn-group" role="group" aria-label="input-options">
+                                <button id="prettifier" type="button" class="btn btn-default" aria-label="Prettify code" title="Prettify code">
+                                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                                </button>
+                                <button id="downloadCode" type="button" class="btn btn-default" aria-label="Download code" title="Download code">
+                                <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                                </button>
+                                <button id="uploadCode" type="button" class="btn btn-default" aria-label="Upload code" title="Upload code">
+                                <span class="glyphicon glyphicon-open-file" aria-hidden="true"><span style="display:none"><input id="files" type="file"></span></span>
+                                </button>
+                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#about-code" title="About the input language">
+                                <span class="glyphicon glyphicon-question-sign" aria-hidden="true"><span style="display:none"><input id="files" type="file"></span></span>
+                                </button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Examples <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a onclick="actions.fillCode('y:=1; do x>0 -> y:=x*y; x:=x-1 od')">Factorial function</a></li>
+                                    <li><a onclick="actions.fillCode('if x>=y -> z:=x [] y>x -> z:=y fi')">Maximum function</a></li>
+                                    <li><a onclick="actions.fillCode('i:=1;do i&lt;n -> j:=i;do (j>0)&amp;&amp;(A[j-1]>A[j]) -> t:=A[j];A[j]:=A[j-1];A[j-1]:=t;j:=j-1 od;i:=i+1 od')">Insertion sort</a></li>
+                                    <li><a onclick="actions.fillCode('i:=0; x:=0; y:=0; do i&lt;10 -> if A[i]>=0 -> x:=x+A[i]; i:=i+1 [] A[i]&lt;0 -> i:=i+1; break fi; y:=y+1 od')">Add and count entries of an array</a></li>
+                                    <li><a onclick="actions.fillCode('i:=0;try do A[i]=x -> throw yes [] !(A[i]=x) -> if i&lt;9 -> i:=i+1 [] i>=9 -> throw no fi od catch yes: x := 1 [] no: x := 2 yrt')">Search for a value in array</a></li>
+                                    <li><a onclick="actions.fillCode('i:=0; x:=0; y:=0; do (n>i)&amp&amp;(A[i]>=0) -> x:=x+A[i]; y:=y+1; i:=i+1 [] (n>i)&amp&amp;(0>A[i]) -> i:=i+1\nod; x:=x/y')">Average of some entries of an array</a></li>
+                                    <li><a onclick="actions.fillCode('if x&lt;0 -> y:=-1*z*z [] x=0 -> y:=0 [] x>0 -> y:=z*z fi')">Implicit and explicit flows</a></li>
+                                    <li><a onclick="actions.fillCode('i:=0; j:=0; do (i&lt;n)&amp;((j=m)|(i&lt;j)) -> A[i]:=A[i]+27; i:=i+1 [] (j&lt;m)&amp;((i=n)|(!(i&lt;j))) -> B[j]:=B[j]+12; j:=j+1 od')">Database</a></li>                            
+                                </ul>
+                            </span>
+                        </h3>
+                        <label for="code">Extended Guarded Commands Code <span id="codeOk"></span></label>
+                    </div>  
+                    <textarea id="code" class="form-control" placeholder="if a >= b -> skip [] !false &amp; true -> x := 5; A[x] := 7 fi; do true -> continue [] true -> break od; try skip; throw foo catch foo : x := 4/1 [] bar : skip yrt; ... "></textarea>
+                    <div id="codeError"></div>
+                </div>
+                
+                <div id="graph-container">
+                <h3>
+                    Program Graph
+                    <span class="btn-group" role="group" aria-label="grap-options">
+                        <button id="refreshGraph" type="button" class="btn btn-default" aria-label="Refresh graph" title="(re)draw graph">
+                          <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                        </button>
+                        <button id="zoomGraph" type="button" class="btn btn-default" aria-label="New window" title="Open program graph in new window for closer inspection">
+                          <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+                        </button>
+                        <button id="downloadGraph" type="button" class="btn btn-default" aria-label="Download graph" title="Download graph in graphviz format">
+                          <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+                        </button>
+                    </span>
+                    <span class="btn-group" role="group" aria-label="grap-options" data-toggle="buttons">
+                        <label class="btn btn-default active" title="Generate non-deterministic graph" id="non-det">
+                          <input type="radio" name="non-det" value="non-det" autocomplete="off" checked> Non-det.
+                        </label>
+                        <label class="btn btn-default" title="Generate deterministic graph" id="det">
+                          <input type="radio" name="non-det" value="det" autocomplete="off"> Det.
+                        </label>
+                    </span>
+                </h3>
+                <div class="panel panel-default">
+                    <div id="graph" class="panel-body" style="width: 100%; height:300px">
+                        <div class="vis-network" tabindex="900" style="
+                            position: relative; 
+                            overflow: hidden; 
+                            touch-action: pan-y; 
+                            user-select: none; 
+                            -webkit-user-drag: none; 
+                            -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+                            width: 100%; 
+                            height: 100%;
+                        ">
+                            <canvas style="
+                                position: relative; 
+                                touch-action: none; 
+                                user-select: none; 
+                                -webkit-user-drag: none; 
+                                -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+                                width: 100%; 
+                                height: 100%;
+                            " width="600" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+            <div class="col-sm-7 col-md-8 col-lg-8 col-sm-offset-5 col-md-offset-4 col-lg-offset-4">
+                <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="about">
+                      <h3>Formal Methods – A Learning Environment</h3>
+                      <strong>fm4fun</strong> is a tool supporting the language and concepts from Chapters 1 to 5 of the book <i>Formal Methods – An Appetizer</i>.
+
+                      <h4>Browser Compatibility</h4>
+                      <p>The tool uses a responsive design and can be used on any device with a modern browser. 
+                          The tool has been developed and tested in Google Chrome v60. 
+                          The online version of the tool has also been tested in
+                            <span>
+                                <span>Firefox v49</span>,
+                                <span>Opera v46</span>,
+                                <span>Safari v10</span>, and
+                                <span>Internet Explorer v11</span>.
+                            </span>
+                      </p>
+
+                      <h4>About</h4>
+                      <p>The core functionality is written in F# and then converted to JavaScript using <a href="http://fable.io/">Fable</a>.</p>
+
+                      <p>Developed by Kasper Laursen and Hanne Riis Nielson, based on the specification developed by Hanne Riis Nielson and Flemming Nielson.</p>
+
+                      <p>This software is protected under the <a href="./LICENSE.txt">Simplified BSD License and the Intellectual Property Rights of the Technical University of Denmark</a>.</p>
+
+                      <h4>Bugs and suggestions</h4>
+                      <p>Please report all bugs and suggestions to <a href="mailto:post@formalmethods.dk">post@formalmethods.dk</a>.</p>
+
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="download">
+                        <h3>Download</h3>
+                        This tool is compiled to javascript, and therefore only requires a browser to run. Download the tool for offline usage.<br><br>
+                        <a href="http://www.formalmethods.dk/fm4fun/releases/fm-latest.zip" class="btn btn-lg btn-primary"> <span class="glyphicon glyphicon glyphicon-download-alt" aria-hidden="true" download></span> Download Formal Methods – A Learning Environment</a>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="step-wise-execution">
+                        <h3>Step-wise Execution</h3>
+                        
+                        <p>Explore how the memory changes, upon execution of the actions. Recall that if more guards are satisfied then it is non-deterministic which action to take.</p>
+                        
+                        <p>When using the <span class="label label-primary">Show Trace</span> feature, non-deterministic choices will be shown in the first column as <span class="label label-danger"><span class="glyphicon glyphicon glyphicon-random"></span></span>, and if clicked the trace will be "reset" from that configuration.</p>
+
+                        <p>When using the <span class="label label-primary">Show Resulting Configurations</span> feature, all non-deterministic choices will be explored, until it reaches the number of steps, gets stuck or terminates. A short summary of the final configurations is found at the end.
+                            <span class="label label-warning">Warning</span> <span class="text-warning">If the input code is highly non-deterministic, and the number of steps is high, the tree of possible end-configurations will grow big (and therefore cause long execution).</span>
+                        </p>
+
+                        <p>For both outputs, all non-terminated and non-stuck configurations can be extended with 1-1000 steps.</p>                        
+                        
+                        <div class="form-group">
+                            <label>Initialization of Variables and Arrays</label>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" title="Auto-initialize variables and arrays with zero" onclick="actions.autoInitializeIdentifiersWithZero()">
+                                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                                    </button>
+                                </span>
+                                <input id="variables-arrays" type="text" class="form-control" placeholder="x = 1, y = 42, A = [1, 2, 4, 6], ...">
+                                <span class="input-group-addon"><span id="variables-arrays-ok-placeholder"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="steps">Number of Steps</label>
+                            <input type="number" class="form-control" id="steps" placeholder="10" value="10" min="1" max="1000">
+                        </div>
+                        <button id="show-stepwise-trace" class="btn btn-primary">Show Trace</button>
+                        <button id="show-multi-step" class="btn btn-primary">Show Resulting Configurations</button>
+                    
+                        <div id="stepwise-trace-placeholder"></div>
+                    </div>
+                    
+                    
+                    <div role="tabpanel" class="tab-pane" id="verification-conditions">
+                        <h3>Verification Conditions</h3>
+
+                        <p>Determine the shortest path fragments, and the proof obligations by providing a partial predicate assigment for the covering nodes of the graph.</p>
+
+                        <p>It is then left to the user to verify that the partial assigment is correct.</p>
+
+                        <label>Partial Predicate Assignment</label>
+                        <br>
+                        <button id="get-covering" class="btn btn-primary btn-sm">Get Covering Nodes</button>
+                        <br>
+                        <br>
+                        <div id="predicate-assignment-placeholder">
+                        </div>
+                        <button id="show-obligations" class="btn btn-primary">Show Proof Obligations</button>
+                        <div id="obligations-placeholder">
+                        </div>
+                    </div>
+
+
+                    <div role="tabpanel" class="tab-pane" id="sign-analysis">
+                        <h3>Detection of Signs Analysis</h3>
+
+                        <p>Determine the sign of the variables and arrays in the specified program at each node in the generated program graph.</p>
+                        
+                        <p>The analysis requires you to specify abstract values for all the variables and arrays in the program before it is possible to get a result.</p>
+
+                        <p>Recall that an analysis function takes a <i>set</i> of abstract memories as input, it is therefore possible to initialize multiple different abstract memories for the variables and arrays (and remove them again if nessesary).</p>
+
+                        <div class="form-group">
+                            <label>Initialization of Signs for Variables and Arrays</label>
+                            <div id="abstractMemeoryPlaceholder">
+                            </div>
+                            <div id="abstractMmemoryAddPlaceholder">
+                                <div class="input-group" style="width: 130px">
+                                    <input id="abstract-mems-to-add" type="number" name="addabstractmemory" class="form-control input-number" value="1" min="1" max="10">
+                                    <span class="input-group-btn">
+                                        <button id="add-more-steps" type="button" class="btn btn-success btn-number" data-type="plus" data-field="addabstractmemory" onclick="actions.addMoreAbstractMems()">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <br>
+                            <button id="show-sign-analysis" class="btn btn-primary">Show Detection of Signs Analysis</button>
+                        </div>
+                        
+                        <div id="signs-analysis-placeholder">
+                        </div>
+                    </div>
+
+
+                    <div role="tabpanel" class="tab-pane" id="security">
+                        <h3>Security Analysis</h3>
+
+                        <p>Explore the information flows in the specified program, according to a user defined security lattice and classification of variables and arrays.</p>
+
+                        <p>Recall that the security analysis only works on a deterministic program graph, it is therefore nessesary that the <span class="btn btn-default btn-xs">Deterministic</span> model is selected.</p>
+
+                        <p>There are templates for the lattices known from the book, but it is also possible to specify a custom security lattice.
+                             The lattice must be a partialy ordered set shown in the right as <span class="label label-success" title="Security lattice is a partial ordered set"><span class="glyphicon glyphicon-sort-by-attributes" style="transform: rotate(180deg) scaleX(-1);" aria-hidden="true"></span></span>
+                             , otherwise there will be shown an error as 
+                             <span class="label label-danger" title="Security lattice is not a partial ordered set"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span></span>.
+                             When a correct lattice is specified, it is illustrated below as a Hasse diagram.
+                        </p>
+
+                        <p>The analysis requires you to classify all the variables and arrays in the program before it is possible to get a result.</p>
+
+                        <p>The result shows the difference between the set of actual information flows in the program and which information flows that are allowed by the specified security classification.</p>
+
+                        <label>Deterministic Model</label> <span id="deterministic-program-ok-placeholder"></span>
+                        <div class="input-group">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default active" title="Security Analysis is not not possible for a non-deterministic model" id="non-det-select" disabled>
+                                <input type="radio" name="non-det-select" autocomplete="off" value="non-det" checked disabled> Non-determinstic
+                            </label>
+                            <label class="btn btn-default" title="Deterministic Model" id="det-select">
+                                <input type="radio" name="non-det-select" autocomplete="off" value="det"> Deterministic
+                            </label>
+                        </div>
+                        </div>
+
+                        <br>
+                        <label>Specify Security Lattice</label>
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Templates <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a onclick="actions.fillSecurityLattice('public &lt; private')">Confidentiality</a></li>
+                                    <li><a onclick="actions.fillSecurityLattice('unclassified &lt; classified, classified &lt; secret, secret &lt; top_secret')">Confidentiality (alt)</a></li>
+                                    <li><a onclick="actions.fillSecurityLattice('trusted &lt; dubious')">Integrity</a></li>
+                                    <li><a onclick="actions.fillSecurityLattice('known_facts &lt; conjecture, conjecture &lt; alternative_facts')">Integrity (alt)</a></li>
+                                    <li><a onclick="actions.fillSecurityLattice('low &lt; high')">Classical</a></li>
+                                    <li><a onclick="actions.fillSecurityLattice('clean &lt; Facebook, clean &lt; Google, clean &lt; Microsoft')">Isolation</a></li>
+                                </ul>
+                            </div>
+                            <input id="security-lattice" type="text" class="form-control" placeholder="public &lt; private, ..." value="public &lt; private">
+                            <span class="input-group-addon"><span id="security-lattice-parsing-ok-placeholder"></span></span>
+                            <span class="input-group-addon"><span id="security-lattice-partial-order-ok-placeholder"></span></span>
+                        </div>
+                        <br>
+                        <label>Security Classification for Variables and Arrays</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" title="Auto-classify variables and arrays with a security class" onclick="actions.autoClassifyIdentifiersWithSecurityClass()">
+                                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                            <input id="security-classification" type="text" class="form-control" placeholder="x = L1, y = L2, A = L3, ...">
+                            <span class="input-group-addon"><span id="security-classification-parsing-ok-placeholder"></span></span>
+                        </div>
+                        <br>
+                        
+                        
+                        <div class="panel panel-default">
+                            <div id="security-lattice-graph" class="panel-body" style="width: 100%; height:300px">
+                                <div class="vis-network" tabindex="900" style="
+                                    position: relative; 
+                                    overflow: hidden; 
+                                    touch-action: pan-y; 
+                                    user-select: none; 
+                                    -webkit-user-drag: none; 
+                                    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+                                    width: 100%; 
+                                    height: 100%;
+                                ">
+                                    <canvas style="
+                                        position: relative; 
+                                        touch-action: none; 
+                                        user-select: none; 
+                                        -webkit-user-drag: none; 
+                                        -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+                                        width: 100%; 
+                                        height: 100%;
+                                    " width="600" height="300"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <button id="show-security-analysis" class="btn btn-primary">Show Security Analysis</button>
+                        <br><br>
+                        <div id="security-analysis-placeholder">
+                        </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div>        
+        </div>
+  <script type="text/javascript" src="js/bundle.js"></script></body>
+</html>
