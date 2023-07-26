@@ -1,5 +1,5 @@
 # Programming Languages Semantics (CC3033)
-This repository contains the code for CProgramming Languages Semantics Course Unit of 2022/2023 Academic Year - DCC/FCUP.
+This repository contains the code for Programming Languages Semantics Course Unit of 2022/2023 Academic Year - DCC/FCUP.
 
 | Folder    | Description |
 | :----------- | :-----------------------------------------------------------------------------------------|
