@@ -1,7 +1,7 @@
-# Semânticas de Linguagens de Programação (CC3033)
-Neste repositório está o código relativo à Unidade Curricular de Semânticas de Linguagens de Programação do Ano Letivo 2022/2023 - DCC/FCUP.
+# Programming Languages Semantics (CC3033)
+This repository contains the code for CProgramming Languages Semantics Course Unit of 2022/2023 Academic Year - DCC/FCUP.
 
-| Diretório    | Descrição |
+| Folder    | Description |
 | :----------- | :-----------------------------------------------------------------------------------------|
-| fm-latest | Código fonte do simulador do *Formal Methods Learning Environment* |
-| plzoo | Código fonte do *The Programming Languages Zoo* |
+| fm-latest | Source code of *Formal Methods Learning Environment* simulator |
+| plzoo | Source code of *The Programming Languages Zoo* |
